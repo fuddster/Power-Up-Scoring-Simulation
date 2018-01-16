@@ -1,0 +1,1169 @@
+<html>
+<head>
+<title>2018 Power Up! Scoring Simulation</title>
+<style>
+.slider_3 {
+    -webkit-appearance: none;
+    width: 100px;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider_3::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider_3::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider_8 {
+    -webkit-appearance: none;
+    width: 250px;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider_8::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider_8::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider_9 {
+    -webkit-appearance: none;
+    width: 300px;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider_9::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider_9::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider_15 {
+    -webkit-appearance: none;
+    width: 500px;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider_15::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider_15::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider_135 {
+    -webkit-appearance: none;
+    width: 600px;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider_135::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider_135::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+td.border {
+  outline: thin solid;
+  border-spacing: 20px;
+}
+
+tr.redBoostDetails {
+  display: none;
+}
+
+td.rbswLabel {
+  display: none;
+}
+
+td.rbscLabel {
+  display: none;
+}
+
+#redBoostSwitch {
+  display: none;
+}
+
+#redBoostScale {
+  display: none;
+}
+
+tr.blueBoostDetails {
+  display: none;
+}
+
+td.bbswLabel {
+  display: none;
+}
+
+td.bbscLabel {
+  display: none;
+}
+
+#blueBoostSwitch {
+  display: none;
+}
+
+#blueBoostScale {
+  display: none;
+}
+
+tr.redForceDetails {
+  display: none;
+}
+
+td.rfswLabel {
+  display: none;
+}
+
+td.rfscLabel {
+  display: none;
+}
+
+#redForceSwitch {
+  display: none;
+}
+
+#redForceScale {
+  display: none;
+}
+
+tr.blueForceDetails {
+  display: none;
+}
+
+td.bfswLabel {
+  display: none;
+}
+
+td.bfscLabel {
+  display: none;
+}
+
+#blueForceSwitch {
+  display: none;
+}
+
+#blueForceScale {
+  display: none;
+}
+</style>
+</head>
+<body>
+  <center>
+  <h1>2018 Power Up! Scoring Simulation</h1>
+  <form>
+  <table width="95%">
+  <tr>
+    <td width="49%" bgcolor="FF0000"><h1><center>Red Alliance</center></h1></td><td width="2%"></td><td width="49%" style="color:yellow" bgcolor="0000FF"><h1><center>Blue Alliance</center></h1></td>
+  </tr>
+  <tr>
+    <td>Auto</td>
+    <td></td>
+    <td>Auto</td>
+  </tr>
+  <tr>
+    <td class="border">
+      <table>
+        <tr>
+          <td>Switch On (0-1x):&nbsp;<span id="raswonV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="1" step="1" value="0" class="slider_3" id="redAutoSwitchOn">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Switch Time (0-15 sec):&nbsp;<span id="raswoV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="15" step="1" value="0" class="slider_15" id="redAutoSwitchOwnership">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Scale On (0-1x):&nbsp;<span id="rasconV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="1" step="1" value="0" class="slider_3" id="redAutoScaleOn">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Scale Time (0-15 sec):&nbsp;<span id="rascoV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="15" step="1" value="0" class="slider_15" id="redAutoScaleOwnership">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Auto-Run (0-3x):&nbsp;<span id="rarV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="3" step="1" value="0" class="slider_3" id="redAutoRun">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Auto-Quest: <input type="checkbox" id="raqV"></td>
+        </tr>
+      </table>
+    </td>
+    <td></td>
+    <td class="border">
+      <table>
+        <tr>
+          <td>Switch On (0-1x):&nbsp;<span id="baswonV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="1" step="1" value="0" class="slider_3" id="blueAutoSwitchOn">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Switch Time (0-15 sec):&nbsp;<span id="baswoV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="15" step="1" value="0" class="slider_15" id="blueAutoSwitchOwnership">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Scale On (0-1x):&nbsp;<span id="basconV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="1" value="0" class="slider_3" id="blueAutoScaleOn">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Scale Time (0-15 sec):&nbsp;<span id="bascoV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="15" value="0" class="slider_15" id="blueAutoScaleOwnership">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Auto-Run (0-3x):&nbsp;<span id="barV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="3" step="1" value="0" class="slider_3" id="blueAutoRun">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Auto-Quest: <input type="checkbox" id="baqV"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>TeleOp</td>
+    <td></td>
+    <td>TeleOp</td>
+  </tr>
+
+  <tr>
+    <td class="border" valign="top">
+      <table>
+        <tr>
+          <td>Switch On (0-8x):&nbsp;<span id="rswonV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="8" step="1" value="0" class="slider_8" id="redSwitchOn">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Switch Time (0-135 sec):&nbsp;<span id="rswoV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="135" step="1" value="0" class="slider_135" id="redSwitchOwnership">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Scale On (0-8x):&nbsp;<span id="rsconV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="8" step="1" value="0" class="slider_8" id="redScaleOn">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Scale Time (0-135 sec):&nbsp;<span id="rscoV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="135" step="1" value="0" class="slider_135" id="redScaleOwnership">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Parking (0-3x):&nbsp;<span id="rpV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="3" step="1" value="0" class="slider_3" id="redParking">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Climb (0-3x):&nbsp;<span id="rcV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="3" step="1" value="0" class="slider_3" id="redClimb">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Boost: <input type="checkbox" id="redBoost1"><input type="checkbox" id="redBoost2"><input type="checkbox" id="redBoost3"><span id="rbV"></span></td>
+        </tr>
+        <tr class="redBoostDetails">
+          <td>
+            <table>
+              <tr>
+                <td>&nbsp;</td><td>&nbsp;</td>
+                <td class="rbswLabel">Switch Pts from Boost:&nbsp;<span id="rbswV">10</span></td>
+                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="10" class="slider_3" id="redBoostSwitch"></div></td>
+                <td class="rbscLabel">Scale Pts from Boost:&nbsp;<span id="rbscV">10</span></td>
+                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="10" class="slider_3" id="redBoostScale"></div></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>Force: <input type="checkbox" id="redForce1"><input type="checkbox" id="redForce2"><input type="checkbox" id="redForce3"><span id="rfV"></span></td>
+        </tr>
+        <tr class="redForceDetails">
+          <td>
+            <table>
+              <tr>
+                <td>&nbsp;</td><td>&nbsp;</td>
+                <td class="rfswLabel">Switch Pts from Force:&nbsp;<span id="rfswV">10</span></td>
+                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="10" class="slider_3" id="redForceSwitch"></div></td>
+                <td class="rfscLabel">Scale Pts from Force:&nbsp;<span id="rfscV">10</span></td>
+                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="10" class="slider_3" id="redForceScale"></div></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>Levitate: <input type="checkbox" id="redLevitate1"><input type="checkbox" id="redLevitate2"><input type="checkbox" id="redLevitate3"><span id="rlV"></span></td>
+        </tr>
+      </table>
+    </td>
+    <td></td>
+    <td class="border" valign="top">
+      <table>
+        <tr>
+          <td>Switch On (0-8x):&nbsp;<span id="bswonV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="8" step="1" value="0" class="slider_8" id="blueSwitchOn">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Switch Time (0-135 sec):&nbsp;<span id="bswoV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="135" step="1" value="0" class="slider_135" id="blueSwitchOwnership">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Scale On (0-8x):&nbsp;<span id="bsconV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="8" value="0" class="slider_8" id="blueScaleOn">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Scale Time (0-135 sec):&nbsp;<span id="bscoV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="135" value="0" class="slider_135" id="blueScaleOwnership">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Parking (0-3x):&nbsp;<span id="bpV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="3" step="1" value="0" class="slider_3" id="blueParking">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Climb (0-3x):&nbsp;<span id="bcV">0</span><br>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="3" step="1" value="0" class="slider_3" id="blueClimb">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Boost: <input type="checkbox" id="blueBoost1"><input type="checkbox" id="blueBoost2"><input type="checkbox" id="blueBoost3"><span id="bbV"></span></td>
+        </tr>
+        <tr class="blueBoostDetails">
+          <td>
+            <table>
+              <tr>
+                <td>&nbsp;</td><td>&nbsp;</td>
+                <td class="bbswLabel">Switch Pts from Boost:&nbsp;<span id="bbswV">10</span></td>
+                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="10" class="slider_3" id="blueBoostSwitch"></div></td>
+                <td class="bbscLabel">Scale Pts from Boost:&nbsp;<span id="bbscV">10</span></td>
+                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="10" class="slider_3" id="blueBoostScale"></div></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>Force: <input type="checkbox" id="blueForce1"><input type="checkbox" id="blueForce2"><input type="checkbox" id="blueForce3"><span id="bfV"></span></td>
+        </tr>
+        <tr class="blueForceDetails">
+          <td>
+            <table>
+              <tr>
+                <td>&nbsp;</td><td>&nbsp;</td>
+                <td class="bfswLabel">Switch Pts from Force:&nbsp;<span id="bfswV">10</span></td>
+                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="10" class="slider_3" id="blueForceSwitch"></div></td>
+                <td class="bfscLabel">Scale Pts from Force:&nbsp;<span id="bfscV">10</span></td>
+                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="10" class="slider_3" id="blueForceScale"></div></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>Levitate: <input type="checkbox" id="blueLevitate1"><input type="checkbox" id="blueLevitate2"><input type="checkbox" id="blueLevitate3"><span id="blV"></span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+  </tr>
+
+  <tr>
+    <td id="redcell"><div class="redscore"><h1><center>Red Score: <span id="redscore" style="font-weight:bold;color:red">0</span></center></h1></div></td>
+    <td></td>
+    <td id="bluecell"><div class="bluescore"><h1><center>Blue Score: <span id="bluescore" style="font-weight:bold;color:blue">0</span></center></h1></div></td>
+  </tr>
+</table>
+</form>
+<script>
+// Auto
+var rascon = document.getElementById("redAutoScaleOn");
+var rasconV = document.getElementById("rasconV");
+var bascon = document.getElementById("blueAutoScaleOn");
+var basconV = document.getElementById("basconV");
+var rasco = document.getElementById("redAutoScaleOwnership");
+var rascoV = document.getElementById("rascoV");
+var basco = document.getElementById("blueAutoScaleOwnership");
+var bascoV = document.getElementById("bascoV");
+var raswon = document.getElementById("redAutoSwitchOn");
+var raswonV = document.getElementById("raswonV");
+var baswon = document.getElementById("blueAutoSwitchOn");
+var baswonV = document.getElementById("baswonV");
+var raswo = document.getElementById("redAutoSwitchOwnership");
+var raswoV = document.getElementById("raswoV");
+var baswo = document.getElementById("blueAutoSwitchOwnership");
+var baswoV = document.getElementById("baswoV");
+var rar = document.getElementById("redAutoRun");
+var rarV = document.getElementById("rarV");
+var bar = document.getElementById("blueAutoRun");
+var barV = document.getElementById("barV");
+var raqV = document.getElementById("raqV");
+var baqV = document.getElementById("baqV");
+
+// TeleOp
+var rscon = document.getElementById("redScaleOn");
+var rsconV = document.getElementById("rsconV");
+var bscon = document.getElementById("blueScaleOn");
+var bsconV = document.getElementById("bsconV");
+var rsco = document.getElementById("redScaleOwnership");
+var rscoV = document.getElementById("rscoV");
+var bsco = document.getElementById("blueScaleOwnership");
+var bscoV = document.getElementById("bscoV");
+var rswon = document.getElementById("redSwitchOn");
+var rswonV = document.getElementById("rswonV");
+var bswon = document.getElementById("blueSwitchOn");
+var bswonV = document.getElementById("bswonV");
+var rswo = document.getElementById("redSwitchOwnership");
+var rswoV = document.getElementById("rswoV");
+var bswo = document.getElementById("blueSwitchOwnership");
+var bswoV = document.getElementById("bswoV");
+var rp = document.getElementById("redParking");
+var rpV = document.getElementById("rpV");
+var bp = document.getElementById("blueParking");
+var bpV = document.getElementById("bpV");
+var rc = document.getElementById("redClimb");
+var rcV = document.getElementById("rcV");
+var bc = document.getElementById("blueClimb");
+var bcV = document.getElementById("bcV");
+var rb1 = document.getElementById("redBoost1");
+var rb2 = document.getElementById("redBoost2");
+var rb3 = document.getElementById("redBoost3");
+var bb1 = document.getElementById("blueBoost1");
+var bb2 = document.getElementById("blueBoost2");
+var bb3 = document.getElementById("blueBoost3");
+var rf1 = document.getElementById("redForce1");
+var rf2 = document.getElementById("redForce2");
+var rf3 = document.getElementById("redForce3");
+var bf1 = document.getElementById("blueForce1");
+var bf2 = document.getElementById("blueForce2");
+var bf3 = document.getElementById("blueForce3");
+var rl1 = document.getElementById("redLevitate1");
+var rl2 = document.getElementById("redLevitate2");
+var rl3 = document.getElementById("redLevitate3");
+var bl1 = document.getElementById("blueLevitate1");
+var bl2 = document.getElementById("blueLevitate2");
+var bl3 = document.getElementById("blueLevitate3");
+var rbV = document.getElementById("rbV");
+var bbV = document.getElementById("bbV");
+var rfV = document.getElementById("rfV");
+var bfV = document.getElementById("bfV");
+var rlV = document.getElementById("rlV");
+var blV = document.getElementById("blV");
+var rBD = document.getElementsByClassName("redBoostDetails")[0];
+var rbswLabel = document.getElementsByClassName("rbswLabel")[0];
+var rbswV = document.getElementById("rbswV");
+var rbsw = document.getElementById("redBoostSwitch");
+var rbscLabel = document.getElementsByClassName("rbscLabel")[0];
+var rbscV = document.getElementById("rbscV");
+var rbsc = document.getElementById("redBoostScale");
+var bBD = document.getElementsByClassName("blueBoostDetails")[0];
+var bbswLabel = document.getElementsByClassName("bbswLabel")[0];
+var bbswV = document.getElementById("bbswV");
+var bbsw = document.getElementById("blueBoostSwitch");
+var bbscLabel = document.getElementsByClassName("bbscLabel")[0];
+var bbscV = document.getElementById("bbscV");
+var bbsc = document.getElementById("blueBoostScale");
+var rFD = document.getElementsByClassName("redForceDetails")[0];
+var rfswLabel = document.getElementsByClassName("rfswLabel")[0];
+var rfswV = document.getElementById("rfswV");
+var rfsw = document.getElementById("redForceSwitch");
+var rfscLabel = document.getElementsByClassName("rfscLabel")[0];
+var rfscV = document.getElementById("rfscV");
+var rfsc = document.getElementById("redForceScale");
+var bFD = document.getElementsByClassName("blueForceDetails")[0];
+var bfswLabel = document.getElementsByClassName("bfswLabel")[0];
+var bfswV = document.getElementById("bfswV");
+var bfsw = document.getElementById("blueForceSwitch");
+var bfscLabel = document.getElementsByClassName("bfscLabel")[0];
+var bfscV = document.getElementById("bfscV");
+var bfsc = document.getElementById("blueForceScale");
+
+// Scores
+var redcell = document.getElementById("redcell");
+var bluecell = document.getElementById("bluecell");
+var redscore = document.getElementById("redscore");
+var bluescore = document.getElementById("bluescore");
+var rs = 0;
+var bs = 0;
+var rbCnt = 0;
+var rfCnt = 0;
+var bbCnt = 0;
+var bfCnt = 0;
+var rlCnt = 0;
+var blCnt = 0;
+
+function calcScores() {
+  // Auto
+  rs = rascon.value * 2;
+  bs = bascon.value * 2;
+  rs += rasco.value * 2;
+  bs += basco.value * 2;
+  rs += raswon.value * 2;
+  bs += baswon.value * 2;
+  rs += raswo.value * 2;
+  bs += baswo.value * 2;
+  rs += rar.value * 5;
+  bs += bar.value * 5;
+
+  if ((parseInt(rar.value) == 3) && (raswon.value > 0)) {
+    raqV.checked = true;
+  } else {
+    raqV.checked = false;
+  }
+
+  if ((parseInt(bar.value) == 3) && (baswon.value > 0)) {
+    baqV.checked = true;
+  } else {
+    baqV.checked = false;
+  }
+
+  rasconV.innerHTML = rascon.value;
+  basconV.innerHTML = bascon.value;
+  rascoV.innerHTML = rasco.value;
+  bascoV.innerHTML = basco.value;
+  raswonV.innerHTML = raswon.value;
+  baswonV.innerHTML = baswon.value;
+  raswoV.innerHTML = raswo.value;
+  baswoV.innerHTML = baswo.value;
+  rarV.innerHTML = rar.value;
+  barV.innerHTML = bar.value;
+
+  // TeleOp
+  rs += rscon.value * 1;
+  bs += bscon.value * 1;
+  rs += rsco.value * 1;
+  bs += bsco.value * 1;
+  rs += rswon.value * 1;
+  bs += bswon.value * 1;
+  rs += rswo.value * 1;
+  bs += bswo.value * 1;
+  rs += rp.value * 5;
+  bs += bp.value * 5;
+  rs += rc.value * 30;
+  bs += bc.value * 30;
+
+  rs += rbCnt * 5;
+  bs += bbCnt * 5;
+  rs += rfCnt * 5;
+  bs += bfCnt * 5;
+  rs += rlCnt * 5;
+  bs += blCnt * 5;
+
+  if ((rbCnt == 1) || (rbCnt == 3)) {
+    rs += rbsw.value * 1;
+  }
+  if ((rbCnt == 2) || (rbCnt == 3)) {
+    rs += rbsc.value * 1;
+  }
+
+  if ((bbCnt == 1) || (bbCnt == 3)) {
+    bs += bbsw.value * 1;
+  }
+  if ((bbCnt == 2) || (bbCnt == 3)) {
+    bs += bbsc.value * 1;
+  }
+
+  if ((rfCnt == 1) || (rfCnt == 3)) {
+    rs += rfsw.value * 1;
+  }
+  if ((rfCnt == 2) || (rfCnt == 3)) {
+    rs += rfsc.value * 1;
+  }
+
+  if ((bfCnt == 1) || (bfCnt == 3)) {
+    bs += bfsw.value * 1;
+  }
+  if ((bfCnt == 2) || (bfCnt == 3)) {
+    bs += bfsc.value * 1;
+  }
+
+  if (rl1.checked && rl2.checked && rl3.checked && (rc.value < 3)) {
+    if ((rp.value > 0) && ((parseInt(rp.value) + parseInt(rc.value)) == 3)) {
+      rs += 25; // Convert one parking (5 pts) to climb (30 pts)
+    } else {
+      rs += 30; // Full points for levitate
+    }
+  }
+  if (bl1.checked && bl2.checked && bl3.checked && (bc.value < 3)) {
+    if ((bp.value > 0) && ((parseInt(bp.value) + parseInt(bc.value)) == 3)) {
+      bs += 25; // Convert one parking (5 pts) to climb (30 pts)
+    } else {
+      bs += 30; // Full points for levitate
+    }
+  }
+
+  rsconV.innerHTML = rscon.value;
+  bsconV.innerHTML = bscon.value;
+  rscoV.innerHTML = rsco.value;
+  bscoV.innerHTML = bsco.value;
+  rswonV.innerHTML = rswon.value;
+  bswonV.innerHTML = bswon.value;
+  rswoV.innerHTML = rswo.value;
+  bswoV.innerHTML = bswo.value;
+  rpV.innerHTML = rp.value;
+  bpV.innerHTML = bp.value;
+  rcV.innerHTML = rc.value;
+  bcV.innerHTML = bc.value;
+
+  if (rs > bs) {
+    redcell.style.backgroundColor = "#0f0"
+    bluecell.style.backgroundColor = "#fff"
+  } else if (bs > rs) {
+    redcell.style.backgroundColor = "#fff"
+    bluecell.style.backgroundColor = "#0f0"
+  } else {
+    redcell.style.backgroundColor = "#fff"
+    bluecell.style.backgroundColor = "#fff"
+  }
+
+  redscore.innerHTML = rs; // Display the default slider value
+  bluescore.innerHTML = bs; // Display the default slider value
+}
+
+// Auto
+rascon.oninput = function() { calcScores(); }
+bascon.oninput = function() { calcScores(); }
+rasco.oninput = function() {
+  if ((parseInt(rasco.value) + parseInt(basco.value)) > 15) {
+    basco.value = 15-parseInt(rasco.value);
+  }
+  calcScores();
+}
+basco.oninput = function() {
+  if ((parseInt(rasco.value) + parseInt(basco.value)) > 15) {
+    rasco.value = 15-parseInt(basco.value);
+  }
+  calcScores();
+}
+raswon.oninput = function() { calcScores(); }
+baswon.oninput = function() { calcScores(); }
+raswo.oninput = function() { calcScores(); }
+baswo.oninput = function() { calcScores(); }
+rar.oninput = function() { calcScores(); }
+bar.oninput = function() { calcScores(); }
+
+// TeleOp
+rscon.oninput = function() { calcScores(); }
+bscon.oninput = function() { calcScores(); }
+rsco.oninput = function() {
+  if ((parseInt(rsco.value) + parseInt(bsco.value)) > 135) {
+    bsco.value = 135-parseInt(rsco.value);
+  }
+  calcScores();
+}
+bsco.oninput = function() {
+  if ((parseInt(rsco.value) + parseInt(bsco.value)) > 135) {
+    rsco.value = 135-parseInt(bsco.value);
+  }
+  calcScores();
+}
+rswon.oninput = function() { calcScores(); }
+bswon.oninput = function() { calcScores(); }
+rswo.oninput = function() { calcScores(); }
+bswo.oninput = function() { calcScores(); }
+
+rp.oninput = function() {
+  switch(rp.value) {
+    case '3':
+      rc.value = 0;
+      break;
+    case '2':
+      if (rc.value > 1) {
+        rc.value = 1;
+      }
+      break;
+    case '1':
+      if (rc.value > 2) {
+        rc.value = 2;
+      }
+      break;
+  }
+  calcScores();
+}
+
+bp.oninput = function() {
+  switch(bp.value) {
+    case '3':
+      bc.value = 0;
+      break;
+    case '2':
+      if (bc.value > 1) {
+        bc.value = 1;
+      }
+      break;
+    case '1':
+      if (bc.value > 2) {
+        bc.value = 2;
+      }
+      break;
+  }
+  calcScores();
+}
+
+rc.oninput = function() {
+  switch(rc.value) {
+    case '3':
+      rp.value = 0;
+      break;
+    case '2':
+      if (rp.value > 1) {
+        rp.value = 1;
+      }
+      break;
+    case '1':
+      if (rp.value > 2) {
+        rp.value = 2;
+      }
+      break;
+  }
+  calcScores();
+}
+
+bc.oninput = function() {
+  switch(bc.value) {
+    case '3':
+      bp.value = 0;
+      break;
+    case '2':
+      if (bp.value > 1) {
+        bp.value = 1;
+      }
+      break;
+    case '1':
+      if (bp.value > 2) {
+        bp.value = 2;
+      }
+      break;
+  }
+  calcScores();
+}
+
+
+function rbVal() {
+  rbCnt = 0;
+  if (rb1.checked) {rbCnt += 1}
+  if (rb2.checked) {rbCnt += 1}
+  if (rb3.checked) {rbCnt += 1}
+  if (rbCnt == 0) {
+    rbV.innerHTML = "";
+    rBD.style.display = 'none';
+  }
+  if (rbCnt == 1) {
+    rbV.innerHTML = "Boost Switch";
+    rBD.style.display = 'inline';
+    rbsw.style.display = 'inline';
+    rbswV.style.display = 'inline';
+    rbswLabel.style.display = 'inline';
+    rbsc.style.display = 'none';
+    rbscV.style.display = 'none';
+    rbscLabel.style.display = 'none';
+  }
+  if (rbCnt == 2) {
+    rbV.innerHTML = "Boost Scale";
+    rBD.style.display = 'inline';
+    rbsw.style.display = 'none';
+    rbswV.style.display = 'none';
+    rbswLabel.style.display = 'none';
+    rbsc.style.display = 'inline';
+    rbscV.style.display = 'inline';
+    rbscLabel.style.display = 'inline';
+  }
+  if (rbCnt == 3) {
+    rbV.innerHTML = "Boost Switch & Scale";
+    rBD.style.display = 'inline';
+    rbsw.style.display = 'inline';
+    rbswV.style.display = 'inline';
+    rbswLabel.style.display = 'inline';
+    rbsc.style.display = 'inline';
+    rbscV.style.display = 'inline';
+    rbscLabel.style.display = 'inline';
+  }
+}
+
+function rfVal() {
+  rfCnt = 0;
+  if (rf1.checked) {rfCnt += 1}
+  if (rf2.checked) {rfCnt += 1}
+  if (rf3.checked) {rfCnt += 1}
+  if (rfCnt == 0) {
+    rfV.innerHTML = "";
+    rFD.style.display = 'none';
+  }
+  if (rfCnt == 1) {
+    rfV.innerHTML = "Force Switch";
+    rFD.style.display = 'inline';
+    rfsw.style.display = 'inline';
+    rfswV.style.display = 'inline';
+    rfswLabel.style.display = 'inline';
+    rfsc.style.display = 'none';
+    rfscV.style.display = 'none';
+    rfscLabel.style.display = 'none';
+  }
+  if (rfCnt == 2) {
+    rfV.innerHTML = "Force Scale";
+    rFD.style.display = 'inline';
+    rfsw.style.display = 'none';
+    rfswV.style.display = 'none';
+    rfswLabel.style.display = 'none';
+    rfsc.style.display = 'inline';
+    rfscV.style.display = 'inline';
+    rfscLabel.style.display = 'inline';
+  }
+  if (rfCnt == 3) {
+    rfV.innerHTML = "Force Switch & Scale";
+    rFD.style.display = 'inline';
+    rfsw.style.display = 'inline';
+    rfswV.style.display = 'inline';
+    rfswLabel.style.display = 'inline';
+    rfsc.style.display = 'inline';
+    rfscV.style.display = 'inline';
+    rfscLabel.style.display = 'inline';
+  }
+}
+
+function bbVal() {
+  bbCnt = 0;
+  if (bb1.checked) {bbCnt += 1}
+  if (bb2.checked) {bbCnt += 1}
+  if (bb3.checked) {bbCnt += 1}
+  if (bbCnt == 0) {
+    bbV.innerHTML = "";
+    bBD.style.display = 'none';
+  }
+  if (bbCnt == 1) {
+    bbV.innerHTML = "Boost Switch";
+    bBD.style.display = 'inline';
+    bbsw.style.display = 'inline';
+    bbswV.style.display = 'inline';
+    bbswLabel.style.display = 'inline';
+    bbsc.style.display = 'none';
+    bbscV.style.display = 'none';
+    bbscLabel.style.display = 'none';
+  }
+  if (bbCnt == 2) {
+    bbV.innerHTML = "Boost Scale";
+    bBD.style.display = 'inline';
+    bbsw.style.display = 'none';
+    bbswV.style.display = 'none';
+    bbswLabel.style.display = 'none';
+    bbsc.style.display = 'inline';
+    bbscV.style.display = 'inline';
+    bbscLabel.style.display = 'inline';
+  }
+  if (bbCnt == 3) {
+    bbV.innerHTML = "Boost Switch & Scale";
+    bBD.style.display = 'inline';
+    bbsw.style.display = 'inline';
+    bbswV.style.display = 'inline';
+    bbswLabel.style.display = 'inline';
+    bbsc.style.display = 'inline';
+    bbscV.style.display = 'inline';
+    bbscLabel.style.display = 'inline';
+  }
+}
+
+function bfVal() {
+  bfCnt = 0;
+  if (bf1.checked) {bfCnt += 1}
+  if (bf2.checked) {bfCnt += 1}
+  if (bf3.checked) {bfCnt += 1}
+  if (bfCnt == 0) {
+    bfV.innerHTML = "";
+    bFD.style.display = 'none';
+  }
+  if (bfCnt == 1) {
+    bfV.innerHTML = "Force Switch";
+    bFD.style.display = 'inline';
+    bfsw.style.display = 'inline';
+    bfswV.style.display = 'inline';
+    bfswLabel.style.display = 'inline';
+    bfsc.style.display = 'none';
+    bfscV.style.display = 'none';
+    bfscLabel.style.display = 'none';
+  }
+  if (bfCnt == 2) {
+    bfV.innerHTML = "Force Scale";
+    bFD.style.display = 'inline';
+    bfsw.style.display = 'none';
+    bfswV.style.display = 'none';
+    bfswLabel.style.display = 'none';
+    bfsc.style.display = 'inline';
+    bfscV.style.display = 'inline';
+    bfscLabel.style.display = 'inline';
+  }
+  if (bfCnt == 3) {
+    bfV.innerHTML = "Force Switch & Scale";
+    bFD.style.display = 'inline';
+    bfsw.style.display = 'inline';
+    bfswV.style.display = 'inline';
+    bfswLabel.style.display = 'inline';
+    bfsc.style.display = 'inline';
+    bfscV.style.display = 'inline';
+    bfscLabel.style.display = 'inline';
+  }
+}
+
+function rlVal() {
+  rlCnt = 0;
+  if (rl1.checked) {rlCnt += 1}
+  if (rl2.checked) {rlCnt += 1}
+  if (rl3.checked) {rlCnt += 1}
+  if (rlCnt == 3) { rlV.innerHTML = "Levitate"; } else { rlV.innerHTML = "" }
+}
+
+function blVal() {
+  blCnt = 0;
+  if (bl1.checked) {blCnt += 1}
+  if (bl2.checked) {blCnt += 1}
+  if (bl3.checked) {blCnt += 1}
+  if (blCnt == 3) { blV.innerHTML = "Levitate"; } else { blV.innerHTML = "" }
+}
+
+rb1.onchange = function() {
+  rbVal();
+  calcScores();
+}
+
+rb2.onchange = function() {
+  rbVal();
+  calcScores();
+}
+
+rb3.onchange = function() {
+  rbVal();
+  calcScores();
+}
+
+bb1.onchange = function() {
+  bbVal();
+  calcScores();
+}
+
+bb2.onchange = function() {
+  bbVal();
+  calcScores();
+}
+
+bb3.onchange = function() {
+  bbVal();
+  calcScores();
+}
+
+rf1.onchange = function() {
+  rfVal();
+  calcScores();
+}
+
+rf2.onchange = function() {
+  rfVal();
+  calcScores();
+}
+
+rf3.onchange = function() {
+  rfVal();
+  calcScores();
+}
+
+bf1.onchange = function() {
+  bfVal();
+  calcScores();
+}
+
+bf2.onchange = function() {
+  bfVal();
+  calcScores();
+}
+
+bf3.onchange = function() {
+  bfVal();
+  calcScores();
+}
+
+rl1.onchange = function() {
+  rlVal();
+  calcScores();
+}
+
+rl2.onchange = function() {
+  rlVal();
+  calcScores();
+}
+
+rl3.onchange = function() {
+  rlVal();
+  calcScores();
+}
+
+bl1.onchange = function() {
+  blVal();
+  calcScores();
+}
+
+bl2.onchange = function() {
+  blVal();
+  calcScores();
+}
+
+bl3.onchange = function() {
+  blVal();
+  calcScores();
+}
+
+rbsw.oninput = function() { calcScores(); }
+bbsw.oninput = function() { calcScores(); }
+rbsc.oninput = function() { calcScores(); }
+bbsc.oninput = function() { calcScores(); }
+
+rfsw.oninput = function() { calcScores(); }
+bfsw.oninput = function() { calcScores(); }
+rfsc.oninput = function() { calcScores(); }
+bfsc.oninput = function() { calcScores(); }
+</script>
+</body>
+</html>

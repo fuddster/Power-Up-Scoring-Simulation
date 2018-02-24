@@ -94,7 +94,7 @@
 
 .slider_15 {
     -webkit-appearance: none;
-    width: 500px;
+    width: 250px;
     height: 15px;
     border-radius: 5px;
     background: #d3d3d3;
@@ -124,7 +124,7 @@
 
 .slider_135 {
     -webkit-appearance: none;
-    width: 600px;
+    width: 540px;
     height: 15px;
     border-radius: 5px;
     background: #d3d3d3;
@@ -154,6 +154,11 @@
 
 td.border {
   outline: thin solid;
+  border-spacing: 20px;
+}
+
+td.boldBorder {
+  outline: medium solid;
   border-spacing: 20px;
 }
 
@@ -236,18 +241,22 @@ td.bfscLabel {
 #blueForceScale {
   display: none;
 }
+
+.score {
+  text-align: center;
+  font-weight: bold;
+  font-size: xx-large;
+  vertical-align: center;
+}
+
+.status {
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+  vertical-align: bottom;
+}
+
 </style>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112595974-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-112595974-1');
-</script>
-
-
 </head>
 <body>
   <center>
@@ -255,16 +264,149 @@ td.bfscLabel {
   <form>
   <table width="95%">
   <tr>
-    <td width="49%" bgcolor="FF0000"><h1><center>Red Alliance</center></h1></td><td width="2%"></td><td width="49%" style="color:yellow" bgcolor="0000FF"><h1><center>Blue Alliance</center></h1></td>
+    <td width="33%" style="color:white" bgcolor="ed1c24"><h1><center>Red Alliance</center></h1></td>
+    <td width="1%" rowspan="3"></td>
+    <td width="32%" rowspan="3" bgcolor="#717999" class="border">
+      <h1 style="color:yellow;vertical-align:top"><center>Match Results</center></h1>
+      <table valign="top" height="100%" width="100%">
+        <tr>
+          <td width="1%"></td>
+          <td class="border" width="48%" bgcolor="ed1c24">
+            <table width="100%">
+              <tr>
+                <td height="5px">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="60%">&nbsp;</td>
+                <td valign="right" width="39%">
+                  <div style="width:100%;height:100%;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;border:3px solid #000000;background-color:#FFFFFF;">
+                    <span>&nbsp;</span>
+                    <div class="score"><span id="redscore">0</span></div>
+                    <div class="status"><span id="redstatus">&nbsp;</span></div>
+                  </div>
+                </td>
+                <td width="1%">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="5px">&nbsp;</td>
+              </tr>
+            </table>
+            <table width="100%">
+              <tr>
+                <td width="1%">&nbsp;</td>
+                  <td width="98%">
+                    <div style="width:100%;height:100%;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;border:1px solid #000000;background-color:#888888;">
+                      <table style="color:white" width="100%">
+                        <tr>
+                          <td width="76%" align="right">Auto Run</td>
+                          <td width="2%">&nbsp;</td>
+                          <td width="20%" align="left"><span id="redAutoRunTotalScore">0</span></td>
+                          <td width="2%">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td width="76%" align="right">Ownership</td>
+                          <td width="2%">&nbsp;</td>
+                          <td width="20%" align="left"><span id="redOwnershipTotalScore">0</span></td>
+                          <td width="2%">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td width="76%" align="right">Vault</td>
+                          <td width="2%">&nbsp;</td>
+                          <td width="20%" align="left"><span id="redVaultTotalScore">0</span></td>
+                          <td width="2%">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td width="76%" align="right">Endgame</td>
+                          <td width="2%">&nbsp;</td>
+                          <td width="20%" align="left"><span id="redEndgameTotalScore">0</span></td>
+                          <td width="2%">&nbsp;</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </td>
+                  <td width="1%">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td height="5px">&nbsp;</td>
+                </tr>
+              </tr>
+            </table>
+          </td>
+          <td width="2%"></td>
+          <td class="border" width="48%" bgcolor="0066b3">
+            <table width="100%">
+              <tr>
+                <td height="5px">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="1%">&nbsp;</td>
+                <td halign="left" width="39%">
+                  <div style="width:100%;height:100%;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;border:3px solid #000000;background-color:#FFFFFF;">
+                    <span>&nbsp;</span>
+                    <div class="score"><span id="bluescore">0</span></div>
+                    <div class="status"><span id="bluestatus">&nbsp;</span></div>
+                  </div>
+                </td>
+                <td width="60%">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="5px">&nbsp;</td>
+              </tr>
+            </table>
+            <table width="100%">
+              <tr>
+                <td width="1%">&nbsp;</td>
+                <td width="98%">
+                  <div style="width:100%;height:100%;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;border:1px solid #000000;background-color:#888888;">
+                    <table style="color:white" width="100%">
+                      <tr>
+                        <td width="2%">&nbsp;</td>
+                        <td width="20%" align="right"><span id="blueAutoRunTotalScore">0</span></td>
+                        <td width="2%">&nbsp;</td>
+                        <td width="76%" align="left">Auto Run</td>
+                      </tr>
+                      <tr>
+                        <td width="2%">&nbsp;</td>
+                        <td width="20%" align="right"><span id="blueOwnershipTotalScore">0</span></td>
+                        <td width="2%">&nbsp;</td>
+                        <td width="76%" align="left">Ownership</td>
+                      </tr>
+                      <tr>
+                        <td width="2%">&nbsp;</td>
+                        <td width="20%" align="right"><span id="blueVaultTotalScore">0</span></td>
+                        <td width="2%">&nbsp;</td>
+                        <td width="76%" align="left">Vault</td>
+                      </tr>
+                      <tr>
+                        <td width="2%">&nbsp;</td>
+                        <td width="20%" align="right"><span id="blueEndgameTotalScore">0</span></td>
+                        <td width="2%">&nbsp;</td>
+                        <td width="76%" align="left">Endgame</td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+                <td width="1%">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="5px">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+          <td width="1%"></td>
+        </tr>
+      </table>
+    </td>
+    <td width="1%" rowspan="3"></td>
+    <td width="33%" style="color:white" bgcolor="0066b3"><h1><center>Blue Alliance</center></h1></td>
   </tr>
   <tr>
     <td>Auto</td>
-    <td></td>
     <td>Auto</td>
   </tr>
   <tr>
     <td class="border">
-      <table>
+      <table width="100%">
         <tr>
           <td>Switch On (0-1x):&nbsp;<span id="raswonV">0</span><br>
             <div class="slidecontainer">
@@ -305,9 +447,8 @@ td.bfscLabel {
         </tr>
       </table>
     </td>
-    <td></td>
     <td class="border">
-      <table>
+      <table width="100%">
         <tr>
           <td>Switch On (0-1x):&nbsp;<span id="baswonV">0</span><br>
             <div class="slidecontainer">
@@ -349,11 +490,12 @@ td.bfscLabel {
       </table>
     </td>
   </tr>
-
+</table>
+<table width="95%">
   <tr>
-    <td>TeleOp</td>
-    <td></td>
-    <td>TeleOp</td>
+    <td width="49%">TeleOp</td>
+    <td width="2%"></td>
+    <td width="49%">TeleOp</td>
   </tr>
 
   <tr>
@@ -438,7 +580,7 @@ td.bfscLabel {
         </tr>
       </table>
     </td>
-    <td></td>
+    <td width="2%"></td>
     <td class="border" valign="top">
       <table>
         <tr>
@@ -525,11 +667,11 @@ td.bfscLabel {
   <tr>
   </tr>
 
-  <tr>
-    <td id="redcell"><div class="redscore"><h1><center>Red Score: <span id="redscore" style="font-weight:bold;color:red">0</span></center></h1></div></td>
+  <!--tr>
+    <td id="redcell"><div class="redscore"><h1><center>Red Score: <span id="redscore" style="font-weight:bold;color:ed1c24">0</span></center></h1></div></td>
     <td></td>
-    <td id="bluecell"><div class="bluescore"><h1><center>Blue Score: <span id="bluescore" style="font-weight:bold;color:blue">0</span></center></h1></div></td>
-  </tr>
+    <td id="bluecell"><div class="bluescore"><h1><center>Blue Score: <span id="bluescore" style="font-weight:bold;color: #0066b3">0</span></center></h1></div></td>
+  </tr-->
 </table>
 </form>
 <script>
@@ -640,6 +782,14 @@ var redcell = document.getElementById("redcell");
 var bluecell = document.getElementById("bluecell");
 var redscore = document.getElementById("redscore");
 var bluescore = document.getElementById("bluescore");
+var rarts = document.getElementById("redAutoRunTotalScore");
+var rots = document.getElementById("redOwnershipTotalScore");
+var rvts = document.getElementById("redVaultTotalScore");
+var rets = document.getElementById("redEndgameTotalScore");
+var barts = document.getElementById("blueAutoRunTotalScore");
+var bots = document.getElementById("blueOwnershipTotalScore");
+var bvts = document.getElementById("blueVaultTotalScore");
+var bets = document.getElementById("blueEndgameTotalScore");
 var rs = 0;
 var bs = 0;
 var rbCnt = 0;
@@ -649,18 +799,46 @@ var bfCnt = 0;
 var rlCnt = 0;
 var blCnt = 0;
 
+var ra = 0;
+var ba = 0;
+var ro = 0;
+var bo = 0;
+var rv = 0;
+var bv = 0;
+var re = 0;
+var be = 0;
+
 function calcScores() {
   // Auto
   rs = rascon.value * 2;
+  ro = rascon.value * 2;
+
   bs = bascon.value * 2;
+  bo = bascon.value * 2;
+
   rs += rasco.value * 2;
+  ro += rasco.value * 2;
+
   bs += basco.value * 2;
+  bo += basco.value * 2;
+
   rs += raswon.value * 2;
+  ro += raswon.value * 2;
+
   bs += baswon.value * 2;
+  bo += baswon.value * 2;
+
   rs += raswo.value * 2;
+  ro += raswo.value * 2;
+
   bs += baswo.value * 2;
+  bo += baswo.value * 2;
+
   rs += rar.value * 5;
+  ra = rar.value * 5;
+
   bs += bar.value * 5;
+  ba = bar.value * 5;
 
   if ((parseInt(rar.value) == 3) && (raswon.value > 0)) {
     raqV.checked = true;
@@ -687,65 +865,111 @@ function calcScores() {
 
   // TeleOp
   rs += rscon.value * 1;
+  ro += rscon.value * 1;
+
   bs += bscon.value * 1;
+  bo += bscon.value * 1;
+
   rs += rsco.value * 1;
+  ro += rsco.value * 1;
+
   bs += bsco.value * 1;
+  bo += bsco.value * 1;
+
   rs += rswon.value * 1;
+  ro += rswon.value * 1;
+
   bs += bswon.value * 1;
+  bo += bswon.value * 1;
+
   rs += rswo.value * 1;
+  ro += rswo.value * 1;
+
   bs += bswo.value * 1;
+  bo += bswo.value * 1;
+
   rs += rp.value * 5;
+  re = rp.value * 5;
+
   bs += bp.value * 5;
+  be = bp.value * 5;
+
   rs += rc.value * 30;
+  re += rc.value * 30;
+
   bs += bc.value * 30;
+  be += bc.value * 30;
 
   rs += rbCnt * 5;
+  rv = rbCnt * 5;
+
   bs += bbCnt * 5;
+  bv = bbCnt * 5;
+
   rs += rfCnt * 5;
+  rv += rfCnt * 5;
+
   bs += bfCnt * 5;
+  bv += bfCnt * 5;
+
   rs += rlCnt * 5;
+  rv += rlCnt * 5;
+
   bs += blCnt * 5;
+  bv += blCnt * 5;
 
   if ((rbCnt == 1) || (rbCnt == 3)) {
     rs += rbsw.value * 1;
+    ro += rbsw.value * 1;
   }
   if ((rbCnt == 2) || (rbCnt == 3)) {
     rs += rbsc.value * 1;
+    ro += rbsc.value * 1;
   }
 
   if ((bbCnt == 1) || (bbCnt == 3)) {
     bs += bbsw.value * 1;
+    bo += bbsw.value * 1;
   }
   if ((bbCnt == 2) || (bbCnt == 3)) {
     bs += bbsc.value * 1;
+    bo += bbsc.value * 1;
   }
 
   if ((rfCnt == 1) || (rfCnt == 3)) {
     rs += rfsw.value * 1;
+    ro += rfsw.value * 1;
   }
   if ((rfCnt == 2) || (rfCnt == 3)) {
     rs += rfsc.value * 1;
+    ro += rfsc.value * 1;
   }
 
   if ((bfCnt == 1) || (bfCnt == 3)) {
     bs += bfsw.value * 1;
+    bo += bfsw.value * 1;
   }
   if ((bfCnt == 2) || (bfCnt == 3)) {
     bs += bfsc.value * 1;
+    bo += bfsc.value * 1;
   }
 
   if (rl1.checked && rl2.checked && rl3.checked && (rc.value < 3)) {
     if ((rp.value > 0) && ((parseInt(rp.value) + parseInt(rc.value)) == 3)) {
       rs += 25; // Convert one parking (5 pts) to climb (30 pts)
+      re += 25; // Convert one parking (5 pts) to climb (30 pts)
     } else {
       rs += 30; // Full points for levitate
+      re += 30; // Full points for levitate
     }
   }
   if (bl1.checked && bl2.checked && bl3.checked && (bc.value < 3)) {
     if ((bp.value > 0) && ((parseInt(bp.value) + parseInt(bc.value)) == 3)) {
       bs += 25; // Convert one parking (5 pts) to climb (30 pts)
+      be += 25; // Convert one parking (5 pts) to climb (30 pts)
     } else {
       bs += 30; // Full points for levitate
+      be += 30; // Full points for levitate
     }
   }
 
@@ -762,19 +986,34 @@ function calcScores() {
   rcV.innerHTML = rc.value;
   bcV.innerHTML = bc.value;
 
+  // Determine winner
   if (rs > bs) {
-    redcell.style.backgroundColor = "#0f0"
-    bluecell.style.backgroundColor = "#fff"
+    redstatus.innerHTML = "WIN"
+    bluestatus.innerHTML = "&nbsp;"
+    //redcell.style.backgroundColor = "#0f0"
+    //bluecell.style.backgroundColor = "#fff"
   } else if (bs > rs) {
-    redcell.style.backgroundColor = "#fff"
-    bluecell.style.backgroundColor = "#0f0"
+    redstatus.innerHTML = "&nbsp;"
+    bluestatus.innerHTML = "WIN"
+    //redcell.style.backgroundColor = "#fff"
+    //bluecell.style.backgroundColor = "#0f0"
   } else {
-    redcell.style.backgroundColor = "#fff"
-    bluecell.style.backgroundColor = "#fff"
+    redstatus.innerHTML = "TIE"
+    bluestatus.innerHTML = "TIE"
+    //redcell.style.backgroundColor = "#fff"
+    //bluecell.style.backgroundColor = "#fff"
   }
 
   redscore.innerHTML = rs; // Display the default slider value
   bluescore.innerHTML = bs; // Display the default slider value
+  rarts.innerHTML = ra;
+  rots.innerHTML = ro;
+  rvts.innerHTML = rv;
+  rets.innerHTML = re;
+  barts.innerHTML = ba;
+  bots.innerHTML = bo;
+  bvts.innerHTML = bv;
+  bets.innerHTML = be;
 }
 
 // Auto

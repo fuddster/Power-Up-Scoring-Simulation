@@ -573,10 +573,10 @@ td.bfscLabel {
             <table>
               <tr>
                 <td>&nbsp;</td><td>&nbsp;</td>
-                <td class="rbswLabel">Switch Pts from Boost:&nbsp;<span id="rbswV">10</span></td>
-                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="10" class="slider_3" id="redBoostSwitch"></div></td>
-                <td class="rbscLabel">Scale Pts from Boost:&nbsp;<span id="rbscV">10</span></td>
-                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="10" class="slider_3" id="redBoostScale"></div></td>
+                <td class="rbswLabel">Switch Pts from Boost:&nbsp;<span id="rbswV">0</span></td>
+                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="0" class="slider_3" id="redBoostSwitch"></div></td>
+                <td class="rbscLabel">Scale Pts from Boost:&nbsp;<span id="rbscV">0</span></td>
+                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="0" class="slider_3" id="redBoostScale"></div></td>
               </tr>
             </table>
           </td>
@@ -589,10 +589,10 @@ td.bfscLabel {
             <table>
               <tr>
                 <td>&nbsp;</td><td>&nbsp;</td>
-                <td class="rfswLabel">Switch Pts from Force:&nbsp;<span id="rfswV">10</span></td>
-                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="10" class="slider_3" id="redForceSwitch"></div></td>
-                <td class="rfscLabel">Scale Pts from Force:&nbsp;<span id="rfscV">10</span></td>
-                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="10" class="slider_3" id="redForceScale"></div></td>
+                <td class="rfswLabel">Switch Pts from Force:&nbsp;<span id="rfswV">0</span></td>
+                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="0" class="slider_3" id="redForceSwitch"></div></td>
+                <td class="rfscLabel">Scale Pts from Force:&nbsp;<span id="rfscV">0</span></td>
+                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="0" class="slider_3" id="redForceScale"></div></td>
               </tr>
             </table>
           </td>
@@ -655,10 +655,10 @@ td.bfscLabel {
             <table>
               <tr>
                 <td>&nbsp;</td><td>&nbsp;</td>
-                <td class="bbswLabel">Switch Pts from Boost:&nbsp;<span id="bbswV">10</span></td>
-                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="10" class="slider_3" id="blueBoostSwitch"></div></td>
-                <td class="bbscLabel">Scale Pts from Boost:&nbsp;<span id="bbscV">10</span></td>
-                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="10" class="slider_3" id="blueBoostScale"></div></td>
+                <td class="bbswLabel">Switch Pts from Boost:&nbsp;<span id="bbswV">0</span></td>
+                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="0" class="slider_3" id="blueBoostSwitch"></div></td>
+                <td class="bbscLabel">Scale Pts from Boost:&nbsp;<span id="bbscV">0</span></td>
+                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="0" class="slider_3" id="blueBoostScale"></div></td>
               </tr>
             </table>
           </td>
@@ -671,10 +671,10 @@ td.bfscLabel {
             <table>
               <tr>
                 <td>&nbsp;</td><td>&nbsp;</td>
-                <td class="bfswLabel">Switch Pts from Force:&nbsp;<span id="bfswV">10</span></td>
-                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="10" class="slider_3" id="blueForceSwitch"></div></td>
-                <td class="bfscLabel">Scale Pts from Force:&nbsp;<span id="bfscV">10</span></td>
-                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="10" class="slider_3" id="blueForceScale"></div></td>
+                <td class="bfswLabel">Switch Pts from Force:&nbsp;<span id="bfswV">0</span></td>
+                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="0" class="slider_3" id="blueForceSwitch"></div></td>
+                <td class="bfscLabel">Scale Pts from Force:&nbsp;<span id="bfscV">0</span></td>
+                <td><div class="slidecontainer"><input type="range" min="0" max="10" step="1" value="0" class="slider_3" id="blueForceScale"></div></td>
               </tr>
             </table>
           </td>
@@ -1002,6 +1002,15 @@ function calcScores() {
   rcV.innerHTML = rc.value;
   bcV.innerHTML = bc.value;
 
+  rbswV.innerHTML = rbsw.value;
+  rbscV.innerHTML = rbsc.value;
+  bbswV.innerHTML = bbsw.value;
+  bbscV.innerHTML = bbsc.value;
+  rfswV.innerHTML = rfsw.value;
+  rfscV.innerHTML = rfsc.value;
+  bfswV.innerHTML = bfsw.value;
+  bfscV.innerHTML = bfsc.value;
+
   // Determine winner
   if (rs > bs) {
     redstatus.innerHTML = "WIN"
@@ -1058,21 +1067,55 @@ bar.oninput = function() { calcScores(); }
 rscon.oninput = function() { calcScores(); }
 bscon.oninput = function() { calcScores(); }
 rsco.oninput = function() {
-  if ((parseInt(rsco.value) + parseInt(bsco.value)) > 135) {
-    bsco.value = 135-parseInt(rsco.value);
+  if ((parseInt(rsco.value) + parseInt(rfsc.value) + parseInt(bfsc.value)) > 135) {
+    rsco.value = 135 - parseInt(rfsc.value) - parseInt(bfsc.value);
+  }
+  if (parseInt(bsco.value) > (135 - parseInt(rsco.value) - parseInt(rfsc.value) - parseInt(bfsc.value))) {
+    bsco.value = (135 - parseInt(rsco.value) - parseInt(rfsc.value) - parseInt(bfsc.value));
+  }
+  if (parseInt(rbsc.value) > parseInt(rsco.value)) {
+    rbsc.value = parseInt(rsco.value);
   }
   calcScores();
 }
 bsco.oninput = function() {
-  if ((parseInt(rsco.value) + parseInt(bsco.value)) > 135) {
-    rsco.value = 135-parseInt(bsco.value);
+  if ((parseInt(bsco.value) + parseInt(rfsc.value) + parseInt(bfsc.value)) > 135) {
+    bsco.value = 135 - parseInt(rfsc.value) - parseInt(bfsc.value);
+  }
+  if (parseInt(rsco.value) > (135 - parseInt(bsco.value) - parseInt(rfsc.value) - parseInt(bfsc.value))) {
+    rsco.value = (135 - parseInt(bsco.value) - parseInt(rfsc.value) - parseInt(bfsc.value));
+  }
+  if (parseInt(bbsc.value) > parseInt(bsco.value)) {
+    bbsc.value = parseInt(bsco.value);
   }
   calcScores();
 }
 rswon.oninput = function() { calcScores(); }
 bswon.oninput = function() { calcScores(); }
-rswo.oninput = function() { calcScores(); }
-bswo.oninput = function() { calcScores(); }
+rswo.oninput = function() {
+  if ((parseInt(rswo.value) + parseInt(rfsw.value)) > 135) {
+    rswo.value = 135 - parseInt(rfsw.value);
+  }
+  if (parseInt(rswo.value) > (135 - parseInt(rfsw.value))) {
+    rswo.value = (135 - parseInt(rfsw.value));
+  }
+  if (parseInt(rbsw.value) > parseInt(rswo.value)) {
+    rbsw.value = parseInt(rswo.value);
+  }
+  calcScores();
+}
+bswo.oninput = function() {
+  if ((parseInt(bswo.value) + parseInt(bfsw.value)) > 135) {
+    bswo.value = 135 - parseInt(bfsw.value);
+  }
+  if (parseInt(bswo.value) > (135 - parseInt(bfsw.value))) {
+    bswo.value = (135 - parseInt(bfsw.value));
+  }
+  if (parseInt(bbsw.value) > parseInt(bswo.value)) {
+    bbsw.value = parseInt(bswo.value);
+  }
+  calcScores();
+}
 
 rp.oninput = function() {
   switch(rp.value) {
@@ -1159,6 +1202,10 @@ function rbVal() {
   if (rbCnt == 0) {
     rbV.innerHTML = "";
     rBD.style.display = 'none';
+    rbsw.value = 0;
+    rbswV.innerHTML = 0;
+    rbsc.value = 0;
+    rbscV.innerHTML = 0;
   }
   if (rbCnt == 1) {
     rbV.innerHTML = "Boost Switch";
@@ -1166,6 +1213,8 @@ function rbVal() {
     rbsw.style.display = 'inline';
     rbswV.style.display = 'inline';
     rbswLabel.style.display = 'inline';
+    rbsc.value = 0;
+    rbscV.innerHTML = 0;
     rbsc.style.display = 'none';
     rbscV.style.display = 'none';
     rbscLabel.style.display = 'none';
@@ -1173,6 +1222,8 @@ function rbVal() {
   if (rbCnt == 2) {
     rbV.innerHTML = "Boost Scale";
     rBD.style.display = 'inline';
+    rbsw.value = 0;
+    rbswV.innerHTML = 0;
     rbsw.style.display = 'none';
     rbswV.style.display = 'none';
     rbswLabel.style.display = 'none';
@@ -1200,6 +1251,10 @@ function rfVal() {
   if (rfCnt == 0) {
     rfV.innerHTML = "";
     rFD.style.display = 'none';
+    rfsw.value = 0;
+    rfswV.innerHTML = 0;
+    rfsc.value = 0;
+    rfscV.innerHTML = 0;
   }
   if (rfCnt == 1) {
     rfV.innerHTML = "Force Switch";
@@ -1207,6 +1262,8 @@ function rfVal() {
     rfsw.style.display = 'inline';
     rfswV.style.display = 'inline';
     rfswLabel.style.display = 'inline';
+    rfsc.value = 0;
+    rfscV.innerHTML = 0;
     rfsc.style.display = 'none';
     rfscV.style.display = 'none';
     rfscLabel.style.display = 'none';
@@ -1214,6 +1271,8 @@ function rfVal() {
   if (rfCnt == 2) {
     rfV.innerHTML = "Force Scale";
     rFD.style.display = 'inline';
+    rfsw.value = 0;
+    rfswV.innerHTML = 0;
     rfsw.style.display = 'none';
     rfswV.style.display = 'none';
     rfswLabel.style.display = 'none';
@@ -1241,6 +1300,10 @@ function bbVal() {
   if (bbCnt == 0) {
     bbV.innerHTML = "";
     bBD.style.display = 'none';
+    bbsw.value = 0;
+    bbswV.innerHTML = 0;
+    bbsc.value = 0;
+    bbscV.innerHTML = 0;
   }
   if (bbCnt == 1) {
     bbV.innerHTML = "Boost Switch";
@@ -1248,6 +1311,8 @@ function bbVal() {
     bbsw.style.display = 'inline';
     bbswV.style.display = 'inline';
     bbswLabel.style.display = 'inline';
+    bbsc.value = 0;
+    bfscV.innerHTML = 0;
     bbsc.style.display = 'none';
     bbscV.style.display = 'none';
     bbscLabel.style.display = 'none';
@@ -1255,6 +1320,8 @@ function bbVal() {
   if (bbCnt == 2) {
     bbV.innerHTML = "Boost Scale";
     bBD.style.display = 'inline';
+    bbsw.value = 0;
+    bbswV.innerHTML = 0;
     bbsw.style.display = 'none';
     bbswV.style.display = 'none';
     bbswLabel.style.display = 'none';
@@ -1282,6 +1349,10 @@ function bfVal() {
   if (bfCnt == 0) {
     bfV.innerHTML = "";
     bFD.style.display = 'none';
+    bfsw.value = 0;
+    bfswV.innerHTML = 0;
+    bfsc.value = 0;
+    bfscV.innerHTML = 0;
   }
   if (bfCnt == 1) {
     bfV.innerHTML = "Force Switch";
@@ -1289,6 +1360,8 @@ function bfVal() {
     bfsw.style.display = 'inline';
     bfswV.style.display = 'inline';
     bfswLabel.style.display = 'inline';
+    bfsc.value = 0;
+    bfscV.innerHTML = 0;
     bfsc.style.display = 'none';
     bfscV.style.display = 'none';
     bfscLabel.style.display = 'none';
@@ -1296,6 +1369,8 @@ function bfVal() {
   if (bfCnt == 2) {
     bfV.innerHTML = "Force Scale";
     bFD.style.display = 'inline';
+    bfsw.value = 0;
+    bfswV.innerHTML = 0;
     bfsw.style.display = 'none';
     bfswV.style.display = 'none';
     bfswLabel.style.display = 'none';
@@ -1421,15 +1496,61 @@ bl3.onchange = function() {
   calcScores();
 }
 
-rbsw.oninput = function() { calcScores(); }
-bbsw.oninput = function() { calcScores(); }
-rbsc.oninput = function() { calcScores(); }
-bbsc.oninput = function() { calcScores(); }
+rbsw.oninput = function() {
+  if (parseInt(rbsw.value) > parseInt(rswo.value)) {
+    rbsw.value = parseInt(rswo.value);
+  }
+  calcScores();
+}
+bbsw.oninput = function() {
+  if (parseInt(bbsw.value) > parseInt(bswo.value)) {
+    bbsw.value = parseInt(bswo.value);
+  }
+  calcScores();
+}
+rbsc.oninput = function() {
+  if (parseInt(rbsc.value) > parseInt(rsco.value)) {
+    rbsc.value = parseInt(rsco.value);
+  }
+  calcScores();
+}
+bbsc.oninput = function() {
+  if (parseInt(bbsc.value) > parseInt(bsco.value)) {
+    bbsc.value = parseInt(bsco.value);
+  }
+  calcScores();
+}
 
-rfsw.oninput = function() { calcScores(); }
-bfsw.oninput = function() { calcScores(); }
-rfsc.oninput = function() { calcScores(); }
-bfsc.oninput = function() { calcScores(); }
+rfsw.oninput = function() {
+  if ((parseInt(rswo.value) + parseInt(rfsw.value)) > 135) {
+    rswo.value = 135-parseInt(rfsw.value);
+  }
+  calcScores();
+}
+bfsw.oninput = function() {
+  if ((parseInt(bswo.value) + parseInt(bfsw.value)) > 135) {
+    bswo.value = 135-parseInt(bfsw.value);
+  }
+  calcScores();
+}
+rfsc.oninput = function() {
+  if ((parseInt(rsco.value) + parseInt(rfsc.value) + parseInt(bfsc.value)) > 135) {
+    rsco.value = 135 - parseInt(rfsc.value) - parseInt(bfsc.value);
+  }
+  if (parseInt(bsco.value) > (135 - parseInt(rsco.value) - parseInt(rfsc.value) - parseInt(bfsc.value))) {
+    bsco.value = (135 - parseInt(rsco.value) - parseInt(rfsc.value) - parseInt(bfsc.value));
+  }
+  calcScores();
+}
+bfsc.oninput = function() {
+  if ((parseInt(bsco.value) + parseInt(rfsc.value) + parseInt(bfsc.value)) > 135) {
+    bsco.value = 135 - parseInt(rfsc.value) - parseInt(bfsc.value);
+  }
+  if (parseInt(rsco.value) > (135 - parseInt(bsco.value) - parseInt(rfsc.value) - parseInt(bfsc.value))) {
+    rsco.value = (135 - parseInt(bsco.value) - parseInt(rfsc.value) - parseInt(bfsc.value));
+  }
+  calcScores();
+}
 </script>
 </body>
 </html>
